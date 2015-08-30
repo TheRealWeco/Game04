@@ -1,8 +1,15 @@
 package tk.astris.main;
 
+import tk.astris.data.TileNames;
+import tk.astris.fileManager.Images;
+import tk.astris.player.Player;
+
 
 public class Main {
 	
+	public static Frame frame;
+	public static Player player;
+	public static Images images;
 	
 	
 	private int fps;
@@ -49,13 +56,19 @@ public class Main {
 	
 	
 	public static void main(String args[]) {
-
+		images = new Images();
+		TileNames.put();
+		player = new Player();
 		
+		frame = new Frame(player);
+		frame.setVisible(true);
 		
 		
 		Main timer = new Main(60);
 		while (true) {
 			timer.sync();
+			frame.update();
+			frame.repaintScreen();
 		}
 		
 	}

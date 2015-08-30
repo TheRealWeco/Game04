@@ -16,7 +16,7 @@ public class Audio {
 			public void run() {
 				try {
 					Clip clip = AudioSystem.getClip();
-					AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getClassLoader().getResourceAsStream("sfx\\" + titel));
+					AudioInputStream inputStream = AudioSystem.getAudioInputStream(getClass().getResource(titel));
 					clip.open(inputStream);
 					clip.start();
 				} catch (LineUnavailableException e) {
